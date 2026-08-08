@@ -2,18 +2,18 @@
   "schema": 1,
   "kdf": "PBKDF2-SHA256",
   "iterations": 600000,
-  "salt": "-fIwzEKhW2AfYjP7bkYxWg",
+  "salt": "J6CcNsYyS0KZRSABXCgq0A",
   "cipher": "AES-256-GCM",
   "manifest": {
-    "url": "vault/b7836e80f81a0c6fb8047eb6b3cb2d9f.bin",
-    "iv": "Jfa8ceQL56o3xU4y",
-    "aad": "private-defense-portal:v1:manifest:b7836e80f81a0c6fb8047eb6b3cb2d9f",
-    "sha256": "3593c08dd72aac26e90e333cf521621e0ebfa9cae640f1da80279c68deae1f17"
+    "url": "vault/76f631b9790a13685b555ab1ded42b14.bin",
+    "iv": "yNDDin8O9ilEjWor",
+    "aad": "private-defense-portal:v1:manifest:76f631b9790a13685b555ab1ded42b14",
+    "sha256": "409e9f67d77b79f45c42bbda4e4c6a486907670beabf06653b296a62fc605115"
   },
   "privateApp": {
-    "url": "vault/a05fddddfb4f3b54f36d7d6cffcca653.bin",
-    "iv": "A2rfNDnlFXShPyCY",
-    "aad": "private-defense-portal:v1:private-app:a05fddddfb4f3b54f36d7d6cffcca653",
-    "sha256": "f39bee456ecb3d2f6eb8516ef1f43f1f50bb2e52b7370ec928c6db1416c7aad9"
+    "url": "vault/90c6a5738d8715f7aad6cc6a76036bbd.bin",
+    "iv": "lFOHZRqE28ifUPzJ",
+    "aad": "private-defense-portal:v1:private-app:90c6a5738d8715f7aad6cc6a76036bbd",
+    "sha256": "3734858c51712304faaf70b543afa65b5a09ab9aca090692b0733487892dfd42"
   }
 }
