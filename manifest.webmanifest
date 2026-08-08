@@ -1,0 +1,18 @@
+{
+  "name": "Private Defense Portal",
+  "short_name": "Defense Portal",
+  "description": "Encrypted, offline-capable research defense workspace.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f4f1",
+  "theme_color": "#4f2459",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
