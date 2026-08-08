@@ -91,6 +91,7 @@ a {
 }
 
 .unlock-panel {
+  position: relative;
   align-self: center;
   width: min(560px, calc(100vw - 88px));
   margin: 0 auto;
@@ -100,6 +101,52 @@ a {
   border-top: 6px solid var(--purple);
   border-radius: 6px;
   box-shadow: var(--shadow);
+}
+
+.language-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.language-control label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.language-select {
+  min-height: 36px;
+  max-width: 132px;
+  padding: 6px 30px 6px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.language-select:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  outline-offset: 2px;
+}
+
+.unlock-language-control {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+}
+
+.language-control.compact label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .lock-mark {
@@ -313,6 +360,12 @@ a {
   font-size: 14px;
 }
 
+.public-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .public-profile-root {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -523,6 +576,27 @@ a {
   display: flex;
   align-items: center;
   gap: 9px;
+}
+
+.portal-language-control .language-select {
+  width: 108px;
+}
+
+.present-language-control .language-select {
+  width: 108px;
+  border-color: #4b4650;
+  background: #252229;
+  color: #fff;
+}
+
+html[data-locale="de"] .defense-slide h2,
+html[data-locale="fr"] .defense-slide h2 {
+  font-size: 35px;
+}
+
+html[data-locale="de"] .slide-bullets,
+html[data-locale="fr"] .slide-bullets {
+  font-size: 17px;
 }
 
 .connection-state {
@@ -3882,7 +3956,13 @@ a {
   }
 
   .public-topbar {
+    flex-wrap: wrap;
+    gap: 8px;
     padding-inline: 14px;
+  }
+
+  .public-topbar-actions {
+    margin-left: auto;
   }
 
   .public-profile-root {
@@ -3925,8 +4005,20 @@ a {
   }
 
   .topbar-brand h1 {
-    max-width: calc(100vw - 154px);
+    max-width: calc(100vw - 238px);
     font-size: 14px;
+  }
+
+  .portal-language-control .language-select {
+    width: 92px;
+    padding-inline: 8px 24px;
+    font-size: 12px;
+  }
+
+  .present-language-control .language-select {
+    width: 92px;
+    padding-inline: 8px 24px;
+    font-size: 12px;
   }
 
   .brand-rule {

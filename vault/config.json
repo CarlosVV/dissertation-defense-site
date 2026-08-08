@@ -5,15 +5,15 @@
   "salt": "ldxUpB8z6mHBQTYIC4THBg",
   "cipher": "AES-256-GCM",
   "manifest": {
-    "url": "vault/b57c6e169c3e05a5cb4f794c295f7cb2.bin",
-    "iv": "c-H2NLjFJtFe5m4f",
-    "aad": "private-defense-portal:v1:manifest:b57c6e169c3e05a5cb4f794c295f7cb2",
-    "sha256": "ebe947893fef16ca0a22a7870395f2cb70f038be0f9128af4826d4b7c1cfc01a"
+    "url": "vault/212fee248645726877eceaf86b8d6d22.bin",
+    "iv": "Bp0a7loGIy9skbzA",
+    "aad": "private-defense-portal:v1:manifest:212fee248645726877eceaf86b8d6d22",
+    "sha256": "8d22e5f3e96f2444e5f117f32c38ea253abaa73b049084798c5789da6cbbb66c"
   },
   "privateApp": {
-    "url": "vault/b9cf3318dc17cd1ee9000d313f93dcfe.bin",
-    "iv": "ORU0D6AUzyG0F7zT",
-    "aad": "private-defense-portal:v1:private-app:b9cf3318dc17cd1ee9000d313f93dcfe",
-    "sha256": "deeb2f12f25d928d75675d3c63244f0c0372aef39a17246227932b1ff608ffb9"
+    "url": "vault/b14b61f9532a509b00f2e9be0d65496c.bin",
+    "iv": "EVhFCVFtIhsh3dTw",
+    "aad": "private-defense-portal:v1:private-app:b14b61f9532a509b00f2e9be0d65496c",
+    "sha256": "5e89254df9709d3762402e4071e35d6ea040ee2f75a846ae5631a7b67b31dfaf"
   }
 }

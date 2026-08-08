@@ -1,5 +1,6 @@
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
+const i18n = window.portalI18n;
 
 const unlockScreen = document.querySelector("#unlock-screen");
 const unlockForm = document.querySelector("#unlock-form");
@@ -136,6 +137,7 @@ function showPublicProfile() {
   portal.hidden = true;
   publicScreen.hidden = false;
   publicProfileRoot.innerHTML = renderPublicProfile();
+  i18n?.apply(publicScreen);
   document.title = state.publicProfile.identity?.title || "Public Research Profile";
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -201,30 +203,31 @@ unlockForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const passphrase = passphraseInput.value.trim();
   if (!passphrase) {
-    unlockStatus.textContent = "Enter the portal passphrase.";
+    unlockStatus.textContent = i18n?.t("Enter the portal passphrase.") || "Enter the portal passphrase.";
     passphraseInput.focus();
     return;
   }
 
   unlockButton.disabled = true;
-  unlockButton.textContent = "Decrypting…";
+  unlockButton.textContent = i18n?.t("Decrypting…") || "Decrypting…";
   const startedAt = performance.now();
   const updateProgress = () => {
     const elapsedSeconds = Math.max(1, Math.round((performance.now() - startedAt) / 1000));
-    unlockStatus.textContent = `Deriving the encryption key… ${elapsedSeconds}s. This can take 5–15 seconds on some devices.`;
+    const progress = `Deriving the encryption key… ${elapsedSeconds}s. This can take 5–15 seconds on some devices.`;
+    unlockStatus.textContent = i18n?.t(progress) || progress;
   };
   updateProgress();
   const progressTimer = window.setInterval(updateProgress, 1000);
   try {
     await unlockPrivatePortal(passphrase);
   } catch (error) {
-    unlockStatus.textContent = "Access could not be completed. Check the passphrase and internet connection, then try again.";
+    unlockStatus.textContent = i18n?.t("Access could not be completed. Check the passphrase and internet connection, then try again.") || "Access could not be completed. Check the passphrase and internet connection, then try again.";
     console.error(error);
     passphraseInput.select();
   } finally {
     window.clearInterval(progressTimer);
     unlockButton.disabled = false;
-    unlockButton.textContent = "Unlock portal";
+    unlockButton.textContent = i18n?.t("Unlock portal") || "Unlock portal";
   }
 });
 
@@ -242,6 +245,13 @@ window.addEventListener("beforeunload", () => {
 });
 
 loadPublicProfile();
+i18n?.bind(document);
+window.addEventListener("portal-language-change", () => {
+  if (!publicScreen.hidden && state.publicProfile.enabled) {
+    publicProfileRoot.innerHTML = renderPublicProfile();
+    i18n.apply(publicScreen);
+  }
+});
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch((error) => console.warn("Service worker registration failed", error)));

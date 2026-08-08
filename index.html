@@ -11,13 +11,22 @@
     <meta name="description" content="Encrypted, offline-capable defense workspace." />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=22" />
+    <link rel="stylesheet" href="styles.css?v=23" />
   </head>
   <body>
     <noscript>This portal requires JavaScript to decrypt its local content.</noscript>
 
     <main id="unlock-screen" class="unlock-shell" aria-labelledby="unlock-title">
       <section class="unlock-panel">
+        <div class="language-control unlock-language-control">
+          <label for="unlock-language">Language</label>
+          <select id="unlock-language" class="language-select">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
         <div class="lock-mark" aria-hidden="true"><span></span></div>
         <p class="eyebrow">ENCRYPTED RESEARCH WORKSPACE</p>
         <h1 id="unlock-title">Private Defense Portal</h1>
@@ -55,7 +64,18 @@
           <p class="topbar-kicker">PUBLIC RESEARCH PROFILE</p>
           <strong>Selected information only</strong>
         </div>
-        <button id="public-back-button" class="secondary-button" type="button">Private portal</button>
+        <div class="public-topbar-actions">
+          <div class="language-control compact">
+            <label for="public-language">Language</label>
+            <select id="public-language" class="language-select">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="de">Deutsch</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
+          <button id="public-back-button" class="secondary-button" type="button">Private portal</button>
+        </div>
       </header>
       <div id="public-profile-root" class="public-profile-root"></div>
     </main>
@@ -70,6 +90,15 @@
           </div>
         </div>
         <div class="topbar-actions">
+          <div class="language-control compact portal-language-control">
+            <label for="portal-language">Language</label>
+            <select id="portal-language" class="language-select">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="de">Deutsch</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
           <span id="connection-state" class="connection-state" aria-live="polite">Online</span>
           <button id="offline-button" class="secondary-button" type="button">Save offline</button>
           <button id="global-search-button" class="icon-button global-search-button" type="button" title="Search all private content" aria-label="Search all private content"><span class="search-glyph" aria-hidden="true"></span></button>
@@ -134,6 +163,15 @@
             <span id="present-timer">00:00</span>
           </div>
           <div class="present-actions">
+            <div class="language-control compact present-language-control">
+              <label for="presentation-language">Language</label>
+              <select id="presentation-language" class="language-select">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+                <option value="fr">Français</option>
+              </select>
+            </div>
             <button id="notes-toggle" class="icon-button" type="button" title="Toggle speaker notes" aria-label="Toggle speaker notes">N</button>
             <button id="fullscreen-button" class="icon-button" type="button" title="Enter fullscreen" aria-label="Enter fullscreen" aria-pressed="false">⛶</button>
             <button id="present-close" class="icon-button" type="button" title="Exit presentation" aria-label="Exit presentation">×</button>
@@ -176,6 +214,7 @@
       </section>
     </template>
 
-    <script type="module" src="app.js?v=22"></script>
+    <script src="i18n.js?v=23"></script>
+    <script type="module" src="app.js?v=23"></script>
   </body>
 </html>
