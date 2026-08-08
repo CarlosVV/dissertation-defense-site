@@ -11,7 +11,7 @@
     <meta name="description" content="Encrypted, offline-capable defense workspace." />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=11" />
+    <link rel="stylesheet" href="styles.css?v=12" />
   </head>
   <body>
     <noscript>This portal requires JavaScript to decrypt its local content.</noscript>
@@ -72,6 +72,7 @@
         <div class="topbar-actions">
           <span id="connection-state" class="connection-state" aria-live="polite">Online</span>
           <button id="offline-button" class="secondary-button" type="button">Save offline</button>
+          <button id="global-search-button" class="icon-button global-search-button" type="button" title="Search all private content" aria-label="Search all private content"><span class="search-glyph" aria-hidden="true"></span></button>
           <button id="lock-button" class="icon-button lock-button" type="button" title="Lock portal" aria-label="Lock portal">×</button>
         </div>
       </header>
@@ -103,6 +104,25 @@
         <button class="mobile-nav-item" data-view="resources" type="button"><span>10</span>Resources</button>
       </nav>
     </div>
+
+    <dialog id="global-search-dialog" class="global-search-dialog">
+      <div class="global-search-shell">
+        <header class="global-search-header">
+          <div>
+            <p class="topbar-kicker">ENCRYPTED FULL-TEXT INDEX</p>
+            <h2>Search the complete research workspace</h2>
+          </div>
+          <button id="global-search-close" class="icon-button" type="button" title="Close search" aria-label="Close search">×</button>
+        </header>
+        <div class="global-search-controls">
+          <label for="global-search-input">Search files, code, data, and dissertation text</label>
+          <input id="global-search-input" type="search" placeholder="Enter a filename, concept, statistic, platform, or phrase..." autocomplete="off" />
+          <div id="global-search-filters" class="global-search-filters" aria-label="Search result types"></div>
+        </div>
+        <p id="global-search-status" class="global-search-status" aria-live="polite">Loading encrypted index...</p>
+        <div id="global-search-results" class="global-search-results"></div>
+      </div>
+    </dialog>
 
     <dialog id="presentation-dialog" class="presentation-dialog">
       <div class="present-shell">
@@ -147,6 +167,6 @@
       </section>
     </template>
 
-    <script type="module" src="app.js?v=11"></script>
+    <script type="module" src="app.js?v=12"></script>
   </body>
 </html>
