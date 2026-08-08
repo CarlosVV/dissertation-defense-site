@@ -2759,6 +2759,16 @@ a {
   cursor: default;
 }
 
+.powerpoint-controls .powerpoint-fullscreen {
+  margin-left: auto;
+}
+
+.powerpoint-controls .powerpoint-fullscreen[aria-pressed="true"],
+#fullscreen-button[aria-pressed="true"] {
+  border-color: var(--gold);
+  color: #f0c65b;
+}
+
 .powerpoint-controls > strong {
   min-width: 64px;
   color: #fff;
@@ -2772,7 +2782,6 @@ a {
 }
 
 .powerpoint-controls .download-button {
-  margin-left: auto;
   border-color: #695d6c;
   background: #302933;
   color: #fff;
@@ -4245,6 +4254,10 @@ a {
   .powerpoint-controls .download-button {
     padding-inline: 8px;
     font-size: 10px;
+  }
+
+  .powerpoint-controls .powerpoint-fullscreen {
+    margin-left: auto;
   }
 
   .powerpoint-notes > div {
