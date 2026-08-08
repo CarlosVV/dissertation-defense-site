@@ -3161,6 +3161,13 @@ a {
   color: #fff;
 }
 
+.present-shell:fullscreen,
+.present-shell:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  background: #0e0c0f;
+}
+
 .present-toolbar,
 .present-controls {
   display: flex;
@@ -4200,7 +4207,7 @@ a {
     min-width: 520px;
   }
 
-  .powerpoint-viewer {
+.powerpoint-viewer {
     grid-template-columns: 1fr;
     grid-template-rows: 126px minmax(0, 1fr);
   }
@@ -4466,6 +4473,42 @@ a {
   .present-stage {
     overflow: hidden;
   }
+}
+
+.powerpoint-viewer:fullscreen,
+.powerpoint-viewer:-webkit-full-screen {
+  grid-template-columns: 1fr;
+  width: 100vw;
+  height: 100vh;
+  background: #171419;
+}
+
+.powerpoint-viewer:fullscreen .powerpoint-sidebar,
+.powerpoint-viewer:-webkit-full-screen .powerpoint-sidebar {
+  display: none;
+}
+
+.powerpoint-viewer:fullscreen .powerpoint-main,
+.powerpoint-viewer:-webkit-full-screen .powerpoint-main {
+  grid-template-rows: minmax(0, 1fr) 58px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.powerpoint-viewer:fullscreen .powerpoint-stage,
+.powerpoint-viewer:-webkit-full-screen .powerpoint-stage {
+  min-height: 0;
+}
+
+.powerpoint-viewer:fullscreen .powerpoint-controls,
+.powerpoint-viewer:-webkit-full-screen .powerpoint-controls {
+  position: relative;
+  z-index: 5;
+}
+
+.powerpoint-viewer:fullscreen .powerpoint-notes,
+.powerpoint-viewer:-webkit-full-screen .powerpoint-notes {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
