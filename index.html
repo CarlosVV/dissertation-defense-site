@@ -11,7 +11,7 @@
     <meta name="description" content="Encrypted, offline-capable defense workspace." />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=12" />
+    <link rel="stylesheet" href="styles.css?v=13" />
   </head>
   <body>
     <noscript>This portal requires JavaScript to decrypt its local content.</noscript>
@@ -149,14 +149,21 @@
 
     <dialog id="asset-dialog" class="asset-dialog">
       <header class="asset-toolbar">
-        <strong id="asset-title">Document</strong>
-        <div>
+        <div class="asset-title-group">
+          <strong id="asset-title">Document</strong>
+          <span id="asset-format-badge" class="asset-format-badge" hidden>TEXT</span>
+        </div>
+        <div class="asset-actions">
+          <div id="asset-view-switch" class="asset-view-switch" role="group" aria-label="Resource view" hidden>
+            <button id="asset-view-formatted" type="button" aria-pressed="true">Formatted</button>
+            <button id="asset-view-source" type="button" aria-pressed="false">Source</button>
+          </div>
           <button id="asset-copy" class="secondary-button asset-copy" type="button" hidden>Copy</button>
           <button id="asset-close" class="icon-button" type="button" title="Close resource" aria-label="Close resource">×</button>
         </div>
       </header>
       <iframe id="asset-frame" title="Decrypted document viewer"></iframe>
-      <pre id="asset-text" class="asset-text" tabindex="0" hidden></pre>
+      <div id="asset-text" class="asset-text" tabindex="0" hidden></div>
     </dialog>
 
     <template id="loading-template">
@@ -167,6 +174,6 @@
       </section>
     </template>
 
-    <script type="module" src="app.js?v=12"></script>
+    <script type="module" src="app.js?v=13"></script>
   </body>
 </html>
