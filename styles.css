@@ -2325,7 +2325,8 @@ a {
 .asset-text.is-markdown,
 .asset-text.is-table,
 .asset-text.is-workbook,
-.asset-text.is-word {
+.asset-text.is-word,
+.asset-text.is-powerpoint {
   background: #faf9f7;
   color: var(--ink);
 }
@@ -2637,6 +2638,192 @@ a {
   min-height: 100%;
   padding: 30px;
   color: #626b71;
+  text-align: center;
+}
+
+.asset-text.is-powerpoint {
+  overflow: hidden;
+  background: #171419;
+}
+
+.powerpoint-viewer {
+  display: grid;
+  grid-template-columns: 188px minmax(0, 1fr);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  color: #f7f3f8;
+}
+
+.powerpoint-sidebar {
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 12px 10px 30px;
+  border-right: 1px solid #3e3742;
+  background: #211c23;
+}
+
+.powerpoint-thumbnail {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 10px;
+  padding: 7px;
+  overflow: hidden;
+  border: 1px solid #4c4450;
+  border-radius: 4px;
+  background: #2b252e;
+  color: #d8cfd9;
+  text-align: left;
+  cursor: pointer;
+}
+
+.powerpoint-thumbnail:hover,
+.powerpoint-thumbnail.is-active {
+  border-color: var(--gold);
+  background: #3a2d3d;
+  color: #fff;
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+
+.powerpoint-thumbnail canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.powerpoint-thumbnail span {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 5px;
+  margin-top: 7px;
+  overflow: hidden;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.powerpoint-thumbnail span strong {
+  color: #d2a63e;
+}
+
+.powerpoint-main {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  min-width: 0;
+  min-height: 0;
+  background: #171419;
+}
+
+.powerpoint-stage {
+  display: grid;
+  min-width: 0;
+  min-height: 260px;
+  place-items: center;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.powerpoint-stage canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  background: #fff;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.38);
+}
+
+.powerpoint-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 8px 14px;
+  border-top: 1px solid #3e3742;
+  background: #211c23;
+}
+
+.powerpoint-controls .icon-button {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-color: #5a505e;
+  background: #302933;
+  color: #fff;
+}
+
+.powerpoint-controls .icon-button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.powerpoint-controls > strong {
+  min-width: 64px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
+
+.powerpoint-controls > span {
+  color: #a89faa;
+  font-size: 10px;
+}
+
+.powerpoint-controls .download-button {
+  margin-left: auto;
+  border-color: #695d6c;
+  background: #302933;
+  color: #fff;
+}
+
+.powerpoint-notes {
+  max-height: 160px;
+  overflow: auto;
+  border-top: 1px solid #3e3742;
+  background: #f5f2f5;
+  color: #252126;
+}
+
+.powerpoint-notes summary {
+  padding: 10px 16px;
+  color: #4b3f4e;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.powerpoint-notes > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 0 16px 16px;
+}
+
+.powerpoint-notes section {
+  min-width: 0;
+}
+
+.powerpoint-notes section > strong {
+  color: var(--purple);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.powerpoint-notes p {
+  margin: 5px 0 0;
+  white-space: pre-wrap;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.powerpoint-loading {
+  display: grid;
+  min-height: 100%;
+  place-content: center;
+  padding: 30px;
+  color: #d8cfd9;
   text-align: center;
 }
 
@@ -4002,6 +4189,66 @@ a {
 
   .word-document table {
     min-width: 520px;
+  }
+
+  .powerpoint-viewer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 126px minmax(0, 1fr);
+  }
+
+  .powerpoint-sidebar {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px 10px;
+    border-right: 0;
+    border-bottom: 1px solid #3e3742;
+  }
+
+  .powerpoint-thumbnail {
+    width: 126px;
+    flex: 0 0 126px;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .powerpoint-thumbnail canvas {
+    width: 112px !important;
+  }
+
+  .powerpoint-thumbnail span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .powerpoint-thumbnail span strong {
+    margin-right: 5px;
+  }
+
+  .powerpoint-stage {
+    min-height: 190px;
+    padding: 10px;
+  }
+
+  .powerpoint-controls {
+    gap: 7px;
+    padding: 7px 9px;
+  }
+
+  .powerpoint-controls > span {
+    display: none;
+  }
+
+  .powerpoint-controls .download-button {
+    padding-inline: 8px;
+    font-size: 10px;
+  }
+
+  .powerpoint-notes > div {
+    grid-template-columns: 1fr;
   }
 
   .formatted-code {

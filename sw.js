@@ -1,11 +1,19 @@
-const CACHE_NAME = "private-defense-portal-shell-v19";
+const CACHE_NAME = "private-defense-portal-shell-v20";
 const SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=19",
-  "./app.js?v=19",
+  "./styles.css?v=20",
+  "./app.js?v=20",
   "./manifest.webmanifest",
   "./assets/icon.svg",
+  "./pdf.worker.min.mjs",
+  "./pdfjs-wasm/jbig2.wasm",
+  "./pdfjs-wasm/jbig2_nowasm_fallback.js",
+  "./pdfjs-wasm/openjpeg.wasm",
+  "./pdfjs-wasm/openjpeg_nowasm_fallback.js",
+  "./pdfjs-wasm/qcms_bg.wasm",
+  "./pdfjs-wasm/quickjs-eval.wasm",
+  "./pdfjs-wasm/quickjs-eval.js",
   "./public-profile.json",
   "./vault/config.json",
 ];
