@@ -1,9 +1,9 @@
-const CACHE_NAME = "private-defense-portal-shell-v15";
+const CACHE_NAME = "private-defense-portal-shell-v16";
 const SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=15",
-  "./app.js?v=15",
+  "./styles.css?v=16",
+  "./app.js?v=16",
   "./manifest.webmanifest",
   "./assets/icon.svg",
   "./public-profile.json",

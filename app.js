@@ -199,16 +199,30 @@ function renderPublicProfile() {
 
 unlockForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  const passphrase = passphraseInput.value.trim();
+  if (!passphrase) {
+    unlockStatus.textContent = "Enter the portal passphrase.";
+    passphraseInput.focus();
+    return;
+  }
+
   unlockButton.disabled = true;
   unlockButton.textContent = "Decrypting…";
-  unlockStatus.textContent = "";
+  const startedAt = performance.now();
+  const updateProgress = () => {
+    const elapsedSeconds = Math.max(1, Math.round((performance.now() - startedAt) / 1000));
+    unlockStatus.textContent = `Deriving the encryption key… ${elapsedSeconds}s. This can take 5–15 seconds on some devices.`;
+  };
+  updateProgress();
+  const progressTimer = window.setInterval(updateProgress, 1000);
   try {
-    await unlockPrivatePortal(passphraseInput.value);
+    await unlockPrivatePortal(passphrase);
   } catch (error) {
-    unlockStatus.textContent = "The passphrase is incorrect or the encrypted package is unavailable.";
+    unlockStatus.textContent = "Access could not be completed. Check the passphrase and internet connection, then try again.";
     console.error(error);
     passphraseInput.select();
   } finally {
+    window.clearInterval(progressTimer);
     unlockButton.disabled = false;
     unlockButton.textContent = "Unlock portal";
   }
