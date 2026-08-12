@@ -1279,22 +1279,52 @@ html[data-locale="fr"] .slide-bullets {
 
 .checklist li::before {
   content: "";
+  display: grid;
+  place-items: center;
   width: 20px;
   height: 20px;
   margin-top: 1px;
   border: 2px solid var(--line-strong);
   background: var(--surface);
+  font-size: 12px;
+  font-weight: 900;
 }
 
-.checklist li.done::before {
+.checklist li.done::before,
+.checklist li.complete::before {
   content: "✓";
-  display: grid;
-  place-items: center;
   border-color: var(--green);
   background: var(--green);
   color: #fff;
-  font-size: 13px;
-  font-weight: 900;
+}
+
+.checklist li.in-progress::before {
+  content: "…";
+  border-color: var(--gold);
+  background: var(--gold-soft);
+  color: #715400;
+}
+
+.checklist li.ready::before {
+  content: "✓";
+  border-color: var(--blue);
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.checklist li.waiting::before {
+  content: "II";
+  border-color: var(--purple);
+  background: var(--purple-soft);
+  color: var(--purple);
+  font-size: 9px;
+}
+
+.checklist li.authorization::before {
+  content: "!";
+  border-color: var(--red);
+  background: var(--red-soft);
+  color: var(--red);
 }
 
 .checklist strong {
@@ -1306,6 +1336,74 @@ html[data-locale="fr"] .slide-bullets {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.45;
+}
+
+.checklist-copy {
+  min-width: 0;
+}
+
+.checklist-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 12px 0 8px;
+}
+
+.checklist-explanation {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 850;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.checklist .status-chip {
+  margin-top: 8px;
+}
+
+.status-chip.complete {
+  border-color: #7da990;
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.status-chip.in-progress {
+  border-color: #dfbd5b;
+  background: var(--gold-soft);
+  color: #715400;
+}
+
+.status-chip.ready {
+  border-color: #7aa6b7;
+  background: var(--blue-soft);
+  color: #255d73;
+}
+
+.status-chip.waiting {
+  border-color: #b9a0bf;
+  background: var(--purple-soft);
+  color: var(--purple);
+}
+
+.status-chip.authorization {
+  border-color: #ce8d8d;
+  background: var(--red-soft);
+  color: var(--red);
 }
 
 .device-record {
